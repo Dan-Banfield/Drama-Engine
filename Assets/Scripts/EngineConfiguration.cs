@@ -1,10 +1,10 @@
-using System;
-using System.IO;
+// using System;
+// using System.IO;
 using UnityEngine;
-using System.Text;
-using System.Security.Cryptography;
+// using System.Text;
+// using System.Security.Cryptography;
 
-public class Configuration : MonoBehaviour
+public class EngineConfiguration : MonoBehaviour
 {
     // private const string MD5_CHECKSUM = "";
 
@@ -19,6 +19,8 @@ public class Configuration : MonoBehaviour
         Application.targetFrameRate = 60;
 
         // CheckForModifications();
+
+        Debug.Log("Finished initialization.");
     }
 
     /*
