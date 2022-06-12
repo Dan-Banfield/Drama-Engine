@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 221890954}
   - component: {fileID: 221890956}
   - component: {fileID: 221890955}
+  - component: {fileID: 221890957}
   m_Layer: 5
   m_Name: LoadingWheel
   m_TagString: Untagged
@@ -275,6 +276,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 221890953}
   m_CullTransparentMesh: 1
+--- !u!95 &221890957
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 221890953}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 11e4e592af894724ba5ecf1287e29f52, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &264327360
 GameObject:
   m_ObjectHideFlags: 0
