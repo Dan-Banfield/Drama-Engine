@@ -1,7 +1,11 @@
+using System.Collections;
 using UnityEngine;
 
 public class LoadingSceneConfiguration : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject loadingUI;
+
     void Awake()
     {
         InitializeScene();
@@ -9,6 +13,23 @@ public class LoadingSceneConfiguration : MonoBehaviour
 
     private void InitializeScene()
     {
-        // TODO: Handle loading, etc.
+        StartCoroutine(LoadingExample());
+    }
+
+    private IEnumerator LoadingExample()
+    {
+        ShowLoadingUI();
+        yield return new WaitForSeconds(5);
+        ShowLoadingUI();
+    }
+
+    private void ShowLoadingUI()
+    {
+        loadingUI.SetActive(true);
+    }
+
+    private void CloseLoadingUI()
+    {
+        loadingUI.SetActive(false);
     }
 }
