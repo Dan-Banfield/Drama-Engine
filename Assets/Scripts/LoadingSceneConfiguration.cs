@@ -20,7 +20,7 @@ public class LoadingSceneConfiguration : MonoBehaviour
     {
         ShowLoadingUI();
         yield return new WaitForSeconds(5);
-        ShowLoadingUI();
+        CloseLoadingUI();
     }
 
     private void ShowLoadingUI()
