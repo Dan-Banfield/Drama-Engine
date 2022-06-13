@@ -23,7 +23,7 @@ public class LoadingSceneConfiguration : MonoBehaviour
 
     private void UpdateVersionLabel()
     {
-        versionLabel.text = new VersionInfo.CurrentVersion().ToString();
+        versionLabel.text = VersionInfo.CurrentVersion.ToVersionString();
     }
 
     private IEnumerator LoadingExample()

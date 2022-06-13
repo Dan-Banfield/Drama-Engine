@@ -2,11 +2,11 @@ namespace DramaEngine
 {
     public static class VersionInfo
     {
-        public class CurrentVersion
+        public static class CurrentVersion
         {
             public const byte Major = 1, Middle = 0, Minor = 0;
 
-            public override string ToString()
+            public static string ToVersionString()
             {
                 return Major.ToString() + "." + Middle.ToString() + "." + Minor.ToString();
             }
