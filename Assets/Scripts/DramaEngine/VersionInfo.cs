@@ -4,11 +4,11 @@ namespace DramaEngine
     {
         public class CurrentVersion
         {
-            public const byte Major = 1, Minor = 0;
+            public const byte Major = 1, Middle = 0, Minor = 0;
 
             public override string ToString()
             {
-                return Major.ToString() + "." + Minor.ToString();
+                return Major.ToString() + "." + Middle.ToString() + "." + Minor.ToString();
             }
         }
     }
