@@ -1,6 +1,7 @@
 using UnityEngine;
 using DramaEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class LoadingSceneConfiguration : MonoBehaviour
 {
@@ -29,7 +30,10 @@ public class LoadingSceneConfiguration : MonoBehaviour
     private IEnumerator LoadingExample()
     {
         ShowLoadingUI();
+
         yield return new WaitForSeconds(5);
+        yield return SceneManager.LoadSceneAsync("StoryScene");
+
         CloseLoadingUI();
     }
 
