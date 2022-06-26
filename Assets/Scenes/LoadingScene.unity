@@ -690,13 +690,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 264327364}
     m_Modifications:
+    - target: {fileID: 6890776553365404659, guid: 7a9927b23fce68b4599e725b2b2a2898, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6890776553589241580, guid: 7a9927b23fce68b4599e725b2b2a2898, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6890776553589241581, guid: 7a9927b23fce68b4599e725b2b2a2898, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.9
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 6890776553589241581, guid: 7a9927b23fce68b4599e725b2b2a2898, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.9
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 6890776553834161473, guid: 7a9927b23fce68b4599e725b2b2a2898, type: 3}
       propertyPath: m_Pivot.x
