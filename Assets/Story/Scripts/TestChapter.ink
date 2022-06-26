@@ -7,6 +7,5 @@ EXTERNAL sfx(soundEffect)
 
 This is a test script.
 Everything that's being said in the script will show up here!
-Pretty cool, right?
 
 -> END
