@@ -1,7 +1,7 @@
 using System.Collections;
+using UnityEngine.UI;
 using UnityEngine;
 using Ink.Runtime;
-using System;
 using TMPro;
 
 namespace DramaEngine
@@ -27,6 +27,8 @@ namespace DramaEngine
         private AudioSource backgroundMusicAudioSource;
         [SerializeField]
         private AudioSource soundEffectAudioSource;
+        [SerializeField]
+        private Image backgroundImageComponent;
 
         #endregion
 
@@ -98,6 +100,24 @@ namespace DramaEngine
                 PlaySoundEffect(soundEffect);
             },
             false);
+
+            storyScript.BindExternalFunction("bg", (string backgroundImage) =>
+            {
+                ChangeBackgroundImage(backgroundImage);
+            },
+            false);
+
+            storyScript.BindExternalFunction("fin", () =>
+            {
+                FadeIn();
+            },
+            false);
+
+            storyScript.BindExternalFunction("fout", () =>
+            {
+                FadeOut();
+            },
+            false);
         }
 
         public void ProceedStory()
@@ -131,16 +151,35 @@ namespace DramaEngine
         {
             if (backgroundMusicAudioSource.isPlaying) backgroundMusicAudioSource.Stop();
 
-            backgroundMusicAudioSource.clip = (AudioClip)Resources.Load("Audio/BackgroundMusic/" + backgroundMusic);
+            #region Code Block
+
+            backgroundMusicAudioSource.clip = Resources.Load<AudioClip>("Audio/BackgroundMusic/" + backgroundMusic);
             backgroundMusicAudioSource.volume = 0;
             backgroundMusicAudioSource.Play();
+
+            #endregion
 
             StartCoroutine(FadeInAudioSource(backgroundMusicAudioSource, fadeTime, 0.7f));
         }
 
         public void PlaySoundEffect(string soundEffect)
         {
-            soundEffectAudioSource.PlayOneShot((AudioClip)Resources.Load("Audio/SoundEffects/" + soundEffect));
+            soundEffectAudioSource.PlayOneShot(Resources.Load<AudioClip>("Audio/SoundEffects/" + soundEffect));
+        }
+
+        public void ChangeBackgroundImage(string backgroundImage)
+        {
+            backgroundImageComponent.sprite = Resources.Load<Sprite>("Images/Backgrounds/" + backgroundImage);
+        }
+
+        public void FadeIn()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void FadeOut()
+        {
+            throw new System.NotImplementedException();
         }
 
         private IEnumerator FadeInAudioSource(AudioSource audioSource, float duration, float targetVolume)
@@ -156,11 +195,6 @@ namespace DramaEngine
             }
 
             yield break;
-        }
-
-        public void ChangeBackgroundImage()
-        {
-            throw new NotImplementedException();
         }
 
         public void EndStory()

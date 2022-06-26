@@ -692,7 +692,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6890776553365404659, guid: 7a9927b23fce68b4599e725b2b2a2898, type: 3}
       propertyPath: m_PreserveAspect
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6890776553589241580, guid: 7a9927b23fce68b4599e725b2b2a2898, type: 3}
       propertyPath: m_PreserveAspect
