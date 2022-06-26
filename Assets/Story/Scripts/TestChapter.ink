@@ -1,12 +1,12 @@
 EXTERNAL name(speakerName)
+EXTERNAL bgm(backgroundMusic, fadeTime)
+EXTERNAL sfx(soundEffect)
 
 {name("???")}
+{bgm("dailyLife", 2.0)}
 
 This is a test script.
-Special actions, such as changing the BGM, and background image, have not been added yet.
-
-{name("God")}
-
-They haven't been added YET, but will be soon!
+Everything that's being said in the script will show up here!
+Pretty cool, right?
 
 -> END

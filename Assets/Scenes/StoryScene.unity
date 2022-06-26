@@ -155,6 +155,10 @@ MonoBehaviour:
   inkJsonFile: {fileID: 4900000, guid: 3b4375eadbae38b419cada007f517978, type: 3}
   dialogueTextComponent: {fileID: 183398695}
   nameTextComponent: {fileID: 210658586}
+  backgroundMusicAudioSource: {fileID: 106465430}
+  soundEffectAudioSource: {fileID: 461574968}
+  dailyLife: {fileID: 0}
+  glassShatter: {fileID: 0}
 --- !u!4 &62909510
 Transform:
   m_ObjectHideFlags: 0
@@ -180,7 +184,7 @@ GameObject:
   - component: {fileID: 106465429}
   - component: {fileID: 106465430}
   m_Layer: 0
-  m_Name: MusicAudioSource
+  m_Name: BackgroundMusicAudioSource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -214,7 +218,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 0.7
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -546,8 +550,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 46
+  m_fontSizeBase: 46
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -607,7 +611,7 @@ GameObject:
   - component: {fileID: 461574967}
   - component: {fileID: 461574968}
   m_Layer: 0
-  m_Name: SoundEffectsAudioSource
+  m_Name: SoundEffectAudioSource
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
