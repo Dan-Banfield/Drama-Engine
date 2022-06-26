@@ -1,4 +1,12 @@
-Hello!
-This dialogue doesn't contain any special actions yet.
-What I mean by this, is there's no way to play music or sound effects.
-Or even change the background sceneary.
+EXTERNAL name(speakerName)
+
+{name("???")}
+
+This is a test script.
+Special actions, such as changing the BGM, and background image, have not been added yet.
+
+{name("God")}
+
+They haven't been added YET, but will be soon!
+
+-> END

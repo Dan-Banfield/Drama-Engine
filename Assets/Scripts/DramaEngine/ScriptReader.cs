@@ -22,9 +22,13 @@ namespace DramaEngine
 
         #endregion
 
-        void Start()
+        private void Awake()
         {
             LoadStory();
+        }
+
+        void Start()
+        {
             ProceedStory();
         }
 
@@ -63,6 +67,17 @@ namespace DramaEngine
         private void LoadStory()
         {
             storyScript = new Story(inkJsonFile.text);
+
+            BindExternalScriptFunctions();
+        }
+
+        private void BindExternalScriptFunctions()
+        {
+            storyScript.BindExternalFunction("name", (string speakerName) =>
+            {
+                ChangeSpeakerName(speakerName);
+            },
+            false);
         }
 
         public void ProceedStory()
@@ -82,9 +97,21 @@ namespace DramaEngine
             dialogueTextComponent.text = dialogue;
         }
 
+        public void ChangeSpeakerName(string speakerName)
+        {
+            if (speakerName == "name")
+            {
+                nameTextComponent.text = PlayerGlobals.GetPlayerName();
+                return;
+            }
+
+            nameTextComponent.text = speakerName;
+        }
+
         public void EndStory()
         {
-            dialogueTextComponent.text = "The story has come to an end.";
+            ChangeSpeakerName("???");
+            UpdateDialogue("The story has come to an end.");
         }
     }
 }
