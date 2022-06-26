@@ -3,4 +3,4 @@ A Unity Editor engine designed for making visual novels, targeting mobile device
 
 ## In Progress
 - Finishing the dialogue scripting system.
-- Designing the base UI.
+- Designing the UI.
