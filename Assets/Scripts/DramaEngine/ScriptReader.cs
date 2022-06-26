@@ -84,7 +84,7 @@ namespace DramaEngine
 
         public void EndStory()
         {
-            dialogueTextComponent.text = "The story has come to and end.";
+            dialogueTextComponent.text = "The story has come to an end.";
         }
     }
 }
