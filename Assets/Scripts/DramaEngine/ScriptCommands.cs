@@ -14,6 +14,8 @@ namespace DramaEngine
         private TextMeshProUGUI dialogueTextComponent;
         [SerializeField]
         private TextMeshProUGUI nameTextComponent;
+        [SerializeField]
+        private CanvasGroup fadeScreenCanvasGroup;
 
         [Header("Components")]
         [SerializeField]
@@ -80,14 +82,14 @@ namespace DramaEngine
             backgroundImageComponent.sprite = Resources.Load<Sprite>("Images/Backgrounds/" + backgroundImage);
         }
 
-        public void FadeIn()
+        public void FadeIn(float time)
         {
-            throw new System.NotImplementedException();
+            LeanTween.alphaCanvas(fadeScreenCanvasGroup, 0, time);
         }
 
-        public void FadeOut()
+        public void FadeOut(float time)
         {
-            throw new System.NotImplementedException();
+            LeanTween.alphaCanvas(fadeScreenCanvasGroup, 1, time);
         }
     }
 }

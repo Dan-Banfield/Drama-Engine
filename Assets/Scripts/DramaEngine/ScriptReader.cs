@@ -73,8 +73,8 @@ namespace DramaEngine
             storyScript.BindExternalFunction("bgm", (string backgroundMusic, float fadeTime) => scriptCommands.PlayBackgroundMusic(backgroundMusic, fadeTime));
             storyScript.BindExternalFunction("sfx", (string soundEffect) => scriptCommands.PlaySoundEffect(soundEffect));
             storyScript.BindExternalFunction("bg", (string backgroundImage) => scriptCommands.ChangeBackgroundImage(backgroundImage));
-            storyScript.BindExternalFunction("fin", () => scriptCommands.FadeIn());
-            storyScript.BindExternalFunction("fout", () => scriptCommands.FadeOut());
+            storyScript.BindExternalFunction("fin", (float time) => scriptCommands.FadeIn(time));
+            storyScript.BindExternalFunction("fout", (float time) => scriptCommands.FadeOut(time));
         }
 
         public void ProceedStory()

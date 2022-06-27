@@ -1234,7 +1234,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1777929265
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1469,6 +1469,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueTextComponent: {fileID: 183398695}
   nameTextComponent: {fileID: 210658586}
+  fadeScreenCanvasGroup: {fileID: 1777929268}
   backgroundMusicAudioSource: {fileID: 106465430}
   soundEffectAudioSource: {fileID: 461574968}
   backgroundImageComponent: {fileID: 302127353}
