@@ -1,8 +1,5 @@
-using System.Collections;
-using UnityEngine.UI;
 using UnityEngine;
 using Ink.Runtime;
-using TMPro;
 
 namespace DramaEngine
 {
@@ -16,19 +13,9 @@ namespace DramaEngine
         [SerializeField]
         private Story storyScript;
 
-        [Header("UI Components")]
+        [Header("Scripts")]
         [SerializeField]
-        private TextMeshProUGUI dialogueTextComponent;
-        [SerializeField]
-        private TextMeshProUGUI nameTextComponent;
-
-        [Header("Components")]
-        [SerializeField]
-        private AudioSource backgroundMusicAudioSource;
-        [SerializeField]
-        private AudioSource soundEffectAudioSource;
-        [SerializeField]
-        private Image backgroundImageComponent;
+        private ScriptCommands scriptCommands;
 
         #endregion
 
@@ -77,47 +64,17 @@ namespace DramaEngine
         private void LoadStory()
         {
             storyScript = new Story(inkJsonFile.text);
-
-            BindExternalScriptFunctions();
+            BindExternalFunctions();
         }
 
-        private void BindExternalScriptFunctions()
+        private void BindExternalFunctions()
         {
-            storyScript.BindExternalFunction("name", (string speakerName) =>
-            {
-                ChangeSpeakerName(speakerName);
-            },
-            false);
-
-            storyScript.BindExternalFunction("bgm", (string backgroundMusic, float fadeTime) =>
-            {
-                PlayBackgroundMusic(backgroundMusic, fadeTime);
-            },
-            false);
-
-            storyScript.BindExternalFunction("sfx", (string soundEffect) =>
-            {
-                PlaySoundEffect(soundEffect);
-            },
-            false);
-
-            storyScript.BindExternalFunction("bg", (string backgroundImage) =>
-            {
-                ChangeBackgroundImage(backgroundImage);
-            },
-            false);
-
-            storyScript.BindExternalFunction("fin", () =>
-            {
-                FadeIn();
-            },
-            false);
-
-            storyScript.BindExternalFunction("fout", () =>
-            {
-                FadeOut();
-            },
-            false);
+            storyScript.BindExternalFunction("name", (string speakerName) => scriptCommands.ChangeSpeakerName(speakerName));
+            storyScript.BindExternalFunction("bgm", (string backgroundMusic, float fadeTime) => scriptCommands.PlayBackgroundMusic(backgroundMusic, fadeTime));
+            storyScript.BindExternalFunction("sfx", (string soundEffect) => scriptCommands.PlaySoundEffect(soundEffect));
+            storyScript.BindExternalFunction("bg", (string backgroundImage) => scriptCommands.ChangeBackgroundImage(backgroundImage));
+            storyScript.BindExternalFunction("fin", () => scriptCommands.FadeIn());
+            storyScript.BindExternalFunction("fout", () => scriptCommands.FadeOut());
         }
 
         public void ProceedStory()
@@ -129,78 +86,13 @@ namespace DramaEngine
             }
 
             string dialogue = storyScript.Continue().Trim();
-            UpdateDialogue(dialogue);
-        }
-
-        private void UpdateDialogue(string dialogue)
-        {
-            dialogueTextComponent.text = dialogue;
-        }
-
-        public void ChangeSpeakerName(string speakerName)
-        {
-            if (speakerName == "name")
-            {
-                nameTextComponent.text = PlayerGlobals.GetPlayerName();
-                return;
-            }
-            nameTextComponent.text = speakerName;
-        }
-
-        public void PlayBackgroundMusic(string backgroundMusic, float fadeTime)
-        {
-            if (backgroundMusicAudioSource.isPlaying) backgroundMusicAudioSource.Stop();
-
-            #region Code Block
-
-            backgroundMusicAudioSource.clip = Resources.Load<AudioClip>("Audio/BackgroundMusic/" + backgroundMusic);
-            backgroundMusicAudioSource.volume = 0;
-            backgroundMusicAudioSource.Play();
-
-            #endregion
-
-            StartCoroutine(FadeInAudioSource(backgroundMusicAudioSource, fadeTime, 0.7f));
-        }
-
-        public void PlaySoundEffect(string soundEffect)
-        {
-            soundEffectAudioSource.PlayOneShot(Resources.Load<AudioClip>("Audio/SoundEffects/" + soundEffect));
-        }
-
-        public void ChangeBackgroundImage(string backgroundImage)
-        {
-            backgroundImageComponent.sprite = Resources.Load<Sprite>("Images/Backgrounds/" + backgroundImage);
-        }
-
-        public void FadeIn()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void FadeOut()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        private IEnumerator FadeInAudioSource(AudioSource audioSource, float duration, float targetVolume)
-        {
-            float currentTime = 0;
-            float start = 0;
-
-            while (currentTime < duration)
-            {
-                currentTime += Time.deltaTime;
-                audioSource.volume = Mathf.Lerp(start, targetVolume, currentTime / duration);
-                yield return null;
-            }
-
-            yield break;
+            scriptCommands.UpdateDialogue(dialogue);
         }
 
         public void EndStory()
         {
-            ChangeSpeakerName("???");
-            UpdateDialogue("The story has come to an end.");
+            scriptCommands.ChangeSpeakerName("???");
+            scriptCommands.UpdateDialogue("The story has come to an end.");
         }
     }
 }
