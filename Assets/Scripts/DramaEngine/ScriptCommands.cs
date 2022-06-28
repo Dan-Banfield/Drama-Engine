@@ -25,6 +25,10 @@ namespace DramaEngine
         [SerializeField]
         private Image backgroundImageComponent;
 
+        [Header("Scripts")]
+        [SerializeField]
+        private CharacterManager characterManager;
+
         #endregion
 
         public void UpdateDialogue(string dialogue)
@@ -90,6 +94,16 @@ namespace DramaEngine
         public void FadeOut(float time)
         {
             LeanTween.alphaCanvas(fadeScreenCanvasGroup, 1, time);
+        }
+
+        public void ShowCharacter(int characterIndex)
+        {
+            characterManager.ShowCharacter(characterIndex);
+        }
+
+        public void HideCharacter(int characterIndex)
+        {
+            characterManager.HideCharacter(characterIndex);
         }
     }
 }
