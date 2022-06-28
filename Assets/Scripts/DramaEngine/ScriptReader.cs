@@ -75,6 +75,8 @@ namespace DramaEngine
             storyScript.BindExternalFunction("bg", (string backgroundImage) => scriptCommands.ChangeBackgroundImage(backgroundImage));
             storyScript.BindExternalFunction("fin", (float time) => scriptCommands.FadeIn(time));
             storyScript.BindExternalFunction("fout", (float time) => scriptCommands.FadeOut(time));
+            storyScript.BindExternalFunction("showchar", (int characterIndex) => scriptCommands.ShowCharacter(characterIndex));
+            storyScript.BindExternalFunction("hidechar", (int characterIndex) => scriptCommands.HideCharacter(characterIndex));
         }
 
         public void ProceedStory()
