@@ -367,6 +367,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadingUI: {fileID: 2141133349}
   versionLabel: {fileID: 1362204627}
+  backgroundImageComponent: {fileID: 2113938243}
 --- !u!1 &998363184
 GameObject:
   m_ObjectHideFlags: 0

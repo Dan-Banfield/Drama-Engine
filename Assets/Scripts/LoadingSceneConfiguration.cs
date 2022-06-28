@@ -1,15 +1,22 @@
 using UnityEngine;
 using DramaEngine;
+using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class LoadingSceneConfiguration : MonoBehaviour
 {
+    #region Properties
+
     [SerializeField]
     private GameObject loadingUI;
 
     [SerializeField] 
-    TMPro.TextMeshProUGUI versionLabel;
+    private TMPro.TextMeshProUGUI versionLabel;
+    [SerializeField]
+    private Image backgroundImageComponent;
+
+    #endregion
 
     void Awake()
     {
@@ -18,8 +25,14 @@ public class LoadingSceneConfiguration : MonoBehaviour
 
     private void InitializeScene()
     {
+        UpdateBackgroundImage();
         UpdateVersionLabel();
         StartCoroutine(LoadingExample());
+    }
+
+    private void UpdateBackgroundImage()
+    {
+        backgroundImageComponent.sprite = Resources.Load<Sprite>("Images/Art/CoverArt");
     }
 
     private void UpdateVersionLabel()
